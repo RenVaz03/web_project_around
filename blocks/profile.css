@@ -1,0 +1,58 @@
+.profile{
+    display: flex;
+    max-width: 880px;
+    margin: 40px auto 50px;
+}
+
+.profile__picture{
+ border-radius: 50%;
+ width: 120px;
+ height: 120px;
+}
+
+.profile__info{
+    display: flex ;
+        justify-content: center;
+        padding: 0 0 0 30px;
+        flex-direction: column;
+}
+
+.profile__info-name{
+    font-family: "inter";
+    font-size: 42px;
+    font-weight: 400;
+    margin: 0;
+    height: 39px;
+    width: 373px;
+}
+
+.profile__info-profession{
+    font-family: "inter";
+    font-size: 18px;
+    font-weight: 400;
+    margin: 16px 0 0;
+    width: 415px;
+    height: 22px;
+}
+
+.profile__info_button-edit{
+        display: flex;
+        max-width: 415px;
+        height: 24px;
+        background-color: transparent;
+        border: transparent;
+        cursor: pointer;
+        padding: 0;
+        justify-content: flex-end
+}
+
+
+.profile__button-add{
+    background-color: transparent;
+    border: transparent;
+    padding: 0;
+    margin: 13px 0 14px 165px;
+    height: 50px;
+    width: 150px;
+    cursor: pointer;
+}

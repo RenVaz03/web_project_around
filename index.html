@@ -16,20 +16,74 @@
             <img src="./images/AroundLogo.png" alt="logo around the EE.UU" class="header__logo">
         </header>
         <main class="content">
-           <section class="profile">  
-            <img src="./images/Profile pic.jpg" alt="foto de perfil" class="profile__picture">
-            <h1 class="profile__name">Jacques Cousteau</h1>
-            <h4 class="profile__profession">Explorador</h4>
-            <button class="profile__button"><img src="./images/Edit Button.png" alt="botton de edicion"></button>
-            <button class="profile__button-add"> <img src="./images/Add Button.png" alt="botton de adición"></button>
-        </section>
-        <section class="elements">
-            <figure class="photo__grid"><img src="./images/YosemiteValley.jpg" alt="valle Yosemite, bosque con lago en centro.">Valle de Yosemite</figure>
-            <figure class="photo__grid"><img src="./images/" alt="Lago louie, un lago cristalino rodeado de montañas">Lago Louie</figure>
-            <figure class="photo__grid"><img src="./images/" alt="montañas calvas, un atardecer sobre varias montañas." >Montañas Calvas</figure>
-            <figure class="photo__grid"><img src="./images/" alt="Latemar, un paisaje de las estrellas con montañas">Latemar</figure>
-            <figure class="photo__grid"><img src="./images/" alt="Vanois National park, parque rodeado de montañas y un hermoso lago">Vanois National park</figure>
-            <figure class="photo__grid"><img src="./images" alt="un lago rodeado de montañas, con una balsa reposando en el agua">Lago Di Braies</figure>
+            <div class="profile">
+                <img
+                  class="profile__picture"
+                  src="./images/Profile pic.jpg"
+                  alt="foto de perfil"
+                />
+                <div class="profile__info">
+                  <div>
+                    <h1 class="profile__info-name">Jacques Cousteau</h1>
+                    <p class="profile__info-profession">Explorador</p>
+                </div>
+                <button class="profile__info_button-edit">
+                 <img class="button__image" src="./images/Edit Button.png"/>
+                </button>
+                </div>
+                <button class="profile__button-add">
+                  <img
+                    class="add-button__image"
+                    src="./images/Add Button.png"
+                  />
+                </button>
+              </div>
+          <section class="photo">
+            <div class="photo__gallery">
+                <div class="gallery"> 
+                    <img src="./images/YosemiteValley.jpg" alt="Valle de Yosemite" class="gallery__images">
+                    <div class="gallery__images-element">
+                        <p class="image__name">Valle de Yosemite</p>
+                        <button class="button__like"><img src="./images/HeartButton.png" alt="boton de like"></button>
+                    </div>
+                </div>
+                <div class="gallery"> 
+                    <img src="./images/LouieLake.jpg" alt="Lago Louie" class="gallery__images">
+                    <div class="gallery__images-element">
+                        <p class="image__name">Lago Louie</p>
+                        <button class="button__like"><img src="./images/HeartButton.png" alt="boton de like"></button>
+                    </div>
+                </div>
+                <div class="gallery"> 
+                    <img src="./images/calvasMountains.jpg" alt="calvas Mountains" class="gallery__images">
+                    <div class="gallery__images-element">
+                        <p class="image__name">Montañas Calvas</p>
+                         <button class="button__like"><img src="./images/HeartButton.png" alt="boton de like"></button>
+                    </div>
+                </div>
+                <div class="gallery"> 
+                    <img src="./images/Latemar.jpg" alt="Latemar" class="gallery__images">
+                    <div class="gallery__images-element">
+                        <p class="image__name">Latemar</p>
+                        <button class="button__like"><img src="./images/HeartButton.png" alt="boton de like"></button>
+                    </div>
+                </div>
+                <div class="gallery"> 
+                    <img src="./images/VanoisNationalPark.jpg" alt="parque nacional Vanois" class="gallery__images">
+                    <div class="gallery__images-element">
+                        <p class="image__name">Parque Nacional Vanois</p>
+                        <button class="button__like"><img src="./images/HeartButton.png" alt="boton de like"></button>
+                    </div>
+                </div>
+                <div class="gallery"> 
+                    <img src="./images/LagoDiBrais.jpg" alt="Lago di brais" class="gallery__images">
+                    <div class="gallery__images-element">
+                        <p class="image__name">Lago Di Brais</p>
+                        <button class="button__like"><img src="./images/HeartButton.png" alt="boton de like"></button>
+                    </div>
+                </div>
+
+            </div>
         </section>
         <footer class="footer">&copy;2024. Around The U.S.</footer>
         </main>
