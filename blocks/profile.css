@@ -17,6 +17,10 @@
         flex-direction: column;
 }
 
+.profile__detail{
+    display: flex;
+}
+
 .profile__info-name{
     font-family: "inter";
     font-size: 42px;
@@ -30,22 +34,25 @@
     font-family: "inter";
     font-size: 18px;
     font-weight: 400;
-    margin: 16px 0 0;
+    margin: 0;
     width: 415px;
     height: 22px;
 }
 
 .profile__info_button-edit{
-        display: flex;
-        max-width: 415px;
+    display: flex ;
+        max-width: 24px;
         height: 24px;
         background-color: transparent;
         border: transparent;
         cursor: pointer;
-        padding: 0;
-        justify-content: flex-end
+        margin: 15px 0 16px 18px;
+        justify-content: flex-end;
+        
 }
-
+.profile__info_button-edit:hover{
+opacity: 60%;
+}
 
 .profile__button-add{
     background-color: transparent;
@@ -55,4 +62,8 @@
     height: 50px;
     width: 150px;
     cursor: pointer;
+}
+
+.profile__button-add:hover{
+    opacity: 60%;
 }
