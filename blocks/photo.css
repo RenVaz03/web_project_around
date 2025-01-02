@@ -75,4 +75,18 @@
     .gallery {
       width: 95%;
     }
+
+    .photo__gallery{
+      column-gap: 10px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+  .gallery {
+    width: 85%;
+  }
+
+  .photo__gallery{
+    column-gap: 10px;
+  }
 }
