@@ -1,4 +1,4 @@
-const openModal = document.querySelector('.profile__info_edit');
+const openModal = document.querySelector('.profile__info-edit');
 const modal = document.querySelector('.modal');
 const closeModal = document.querySelector('.modal__close');
 const saveButton = document.querySelector('.modal__save');

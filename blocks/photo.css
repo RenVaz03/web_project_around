@@ -40,7 +40,7 @@
     margin: auto 15px auto 21px;
   }
   
-  .gallery__image_name {
+  .gallery__image-name {
     max-width: 244px;
     height: 28px;
     color: black;
@@ -56,18 +56,18 @@
     align-content: center;
   }
   
-  .gallery__button__like {
+  .gallery__button-like {
     background-color: transparent;
     border: transparent;
     margin: 0;
     padding: 0;
     cursor: pointer;
   }
-  .gallery__button__like:hover{
+  .gallery__button-like:hover{
   opacity: 60%;
   }
 
-  .gallery__button__like:active{
+  .gallery__button-like:active{
     background-color: black;
   }
 
