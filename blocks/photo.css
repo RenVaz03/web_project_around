@@ -56,18 +56,18 @@
     align-content: center;
   }
   
-  .gallery__button_like {
+  .gallery__button__like {
     background-color: transparent;
     border: transparent;
     margin: 0;
     padding: 0;
     cursor: pointer;
   }
-  .gallery__button_like:hover{
+  .gallery__button__like:hover{
   opacity: 60%;
   }
 
-  .gallery__button_like:active{
+  .gallery__button__like:active{
     background-color: black;
   }
 

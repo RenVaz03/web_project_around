@@ -39,7 +39,7 @@
     height: 22px;
 }
 
-.profile__info_button-edit{
+.profile__info_edit{
     display: flex ;
         max-width: 24px;
         height: 24px;
@@ -53,7 +53,7 @@
 
         
 }
-.profile__info_button-edit:hover{
+.profile__info_edit:hover{
 opacity: 60%;
 }
 
