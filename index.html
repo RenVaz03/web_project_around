@@ -43,6 +43,7 @@
                 <div class="gallery"> 
                     <img src="./images/YosemiteValley.jpg" alt="Valle de Yosemite" class="gallery__images">
                     <div class="gallery__images-element">
+                        <button class="gallery__button-delete"><img src="./images/trashButton.png" alt="boton de basura"></button>
                         <p class="gallery__image-name">Valle de Yosemite</p>
                         <button class="gallery__button-like"><img src="./images/HeartButton.png" alt="boton de like"></button>
                     </div>
@@ -50,6 +51,7 @@
                 <div class="gallery"> 
                     <img src="./images/LouieLake.jpg" alt="Lago Louie" class="gallery__images">
                     <div class="gallery__images-element">
+                        <button class="gallery__button-delete"><img src="./images/trashButton.png" alt="boton de basura"></button>
                         <p class="gallery__image-name">Lago Louie</p>
                         <button class="gallery__button-like"><img src="./images/HeartButton.png" alt="boton de like"></button>
                     </div>
@@ -57,6 +59,7 @@
                 <div class="gallery"> 
                     <img src="./images/calvasMountains.jpg" alt="calvas Mountains" class="gallery__images">
                     <div class="gallery__images-element">
+                        <button class="gallery__button-delete"><img src="./images/trashButton.png" alt="boton de basura"></button>
                         <p class="gallery__image-name">Montañas Calvas</p>
                          <button class="gallery__button-like"><img src="./images/HeartButton.png" alt="boton de like"></button>
                     </div>
@@ -64,6 +67,7 @@
                 <div class="gallery"> 
                     <img src="./images/Latemar.jpg" alt="Latemar" class="gallery__images">
                     <div class="gallery__images-element">
+                        <button class="gallery__button-delete"><img src="./images/trashButton.png" alt="boton de basura"></button>
                         <p class="gallery__image-name">Latemar</p>
                         <button class="gallery__button-like"><img src="./images/HeartButton.png" alt="boton de like"></button>
                     </div>
@@ -71,6 +75,7 @@
                 <div class="gallery"> 
                     <img src="./images/VanoisNationalPark.jpg" alt="parque nacional Vanois" class="gallery__images">
                     <div class="gallery__images-element">
+                        <button class="gallery__button-delete"><img src="./images/trashButton.png" alt="boton de basura"></button>
                         <p class="gallery__image-name">Parque Nacional Vanois</p>
                         <button class="gallery__button-like"><img src="./images/HeartButton.png" alt="boton de like"></button>
                     </div>
@@ -78,12 +83,23 @@
                 <div class="gallery"> 
                     <img src="./images/LagoDiBrais.jpg" alt="Lago di brais" class="gallery__images">
                     <div class="gallery__images-element">
+                        <button class="gallery__button-delete"><img src="./images/trashButton.png" alt="boton de basura"></button>
                         <p class="gallery__image-name">Lago Di Brais</p>
                         <button class="gallery__button-like"><img src="./images/HeartButton.png" alt="boton de like"></button>
                     </div>
                 </div>
             </div>
         </section>
+        <template id="card-template">
+            <div class="gallery"> 
+                <img src="" alt="" class="gallery__images">
+                <div class="gallery__images-element">
+                    <button class="gallery__button-delete"><img src="./images/trashButton.png" alt="boton de basura"></button>
+                    <p class="gallery__image-name"></p>
+                    <button class="gallery__button-like"><img src="./images/HeartButton.png" alt="boton de like"></button>
+                </div>
+            </div>
+        </template>
         <footer class="footer">&copy;2024. Around The U.S.</footer>
         </main>
         <section class="modal">
@@ -97,6 +113,19 @@
                     <input type="text" class="modal__abt-me" value placeholder="Explorador">
                 </div>
                 <button class="modal__save">Guardar</button>
+            </form>
+        </section>
+        <section class="add">
+            <form class="add__container">
+                <button class="add__close">
+                    <img src="./images/closeIconX.png" alt="boton de cierre" class="add__close-img">
+                    </button>
+                <h3 class="add_new__place">Nuevo lugar</h3>
+                <div class="add__info">
+                    <input type= "text" class="add__title" value placeholder="Titulo">
+                    <input type="text" class="add__url" value placeholder="Enlace a la imagen">
+                </div>
+                <button class="add__save">Crear</button>
             </form>
         </section>
     </div>

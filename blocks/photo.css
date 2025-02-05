@@ -63,12 +63,28 @@
     padding: 0;
     cursor: pointer;
   }
+
+  .gallery__button-delete{
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background-color: transparent;
+    border: transparent;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+  .gallery__button-delete:hover{
+opacity: 60%;
+  }
+
   .gallery__button-like:hover{
   opacity: 60%;
   }
 
-  .gallery__button-like:active{
-    background-color: black;
+  .gallery__button_like_active{
+    opacity: 1;
+    background-image: url(/images/HeartButtonActive.png);
   }
 
   @media screen and (max-width: 910px) {
