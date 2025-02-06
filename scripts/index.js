@@ -104,3 +104,19 @@ function createCard(title, imageUrl) {
 
     return card;
 }
+
+addSaveButton.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const title = titleInput.value;
+    const imageUrl = urlInput.value;
+
+    if (title && imageUrl) {
+        const newCard = createCard(title, imageUrl);
+
+        photoGallery.appendChild(newCard);
+
+        titleInput.value = '';
+        urlInput.value = '';
+    }
+});
