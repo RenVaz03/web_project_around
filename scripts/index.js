@@ -1,3 +1,30 @@
+const initialCards = [
+    {
+      name: "Valle de Yosemite",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
+    },
+    {
+      name: "Lago Louise",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg"
+    },
+    {
+      name: "Montañas Calvas",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg"
+    },
+    {
+      name: "Latemar",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg"
+    },
+    {
+      name: "Parque Nacional de la Vanoise",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg"
+    },
+    {
+      name: "Lago di Braies",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
+    }
+  ];
+   
 const openModal = document.querySelector('.profile__info-edit');
 const modal = document.querySelector('.modal');
 const closeModal = document.querySelector('.modal__close');
@@ -62,6 +89,10 @@ add.classList.remove('add--active');
 
 const photoGallery = document.querySelector('.photo__gallery');
 
+initialCards.forEach(card => {
+    const newCard = createCard(card.name, card.link);
+    photoGallery.appendChild(newCard);
+});
 
 function createCard(title, imageUrl) {
     const card = document.createElement('div');
