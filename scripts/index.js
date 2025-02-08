@@ -68,7 +68,6 @@ const addSaveButton = document.querySelector('.add__save');
 const titleInput = document.querySelector('.add__title');
 const urlInput = document.querySelector('.add__url');
 const cardTitle = document.querySelector('.card__title-name');
-const likeButton = document.querySelector('.gallery__button-like')
 
 openAdd.addEventListener('click', (e) => {
     e.preventDefault();
@@ -126,7 +125,10 @@ function createCard(title, imageUrl) {
     deleteIcon.alt = 'boton de basura';
     deleteButton.appendChild(deleteIcon);
 
-    
+    likeButton.addEventListener('click', function (evt){
+        evt.target.classList.toggle('gallery__button-like_active');
+    });
+
     cardDetails.appendChild(cardTitle);
     cardDetails.appendChild(likeButton);
     cardDetails.appendChild(deleteButton);
@@ -135,9 +137,6 @@ function createCard(title, imageUrl) {
 
     return card;
 }
-likeButton.addEventListener('click', function (evt) {
-evt.target.classList.toggle('gallery__button-like_active')
-});
 
 addSaveButton.addEventListener('click', (e) => {
     e.preventDefault();
@@ -190,4 +189,3 @@ imagePopup.addEventListener('click', (e) => {
     }
     console.log(popupClose)
 });
-
