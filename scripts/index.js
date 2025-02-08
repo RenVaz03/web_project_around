@@ -129,6 +129,10 @@ function createCard(title, imageUrl) {
         evt.target.classList.toggle('gallery__button-like_active');
     });
 
+    deleteButton.addEventListener('click', function(evt){
+        const card = evt.target.remove('gallery'); 
+    });
+
     cardDetails.appendChild(cardTitle);
     cardDetails.appendChild(likeButton);
     cardDetails.appendChild(deleteButton);
@@ -187,5 +191,4 @@ imagePopup.addEventListener('click', (e) => {
     if (e.target === imagePopup) {
         closeImagePopup();
     }
-    console.log(popupClose)
 });
