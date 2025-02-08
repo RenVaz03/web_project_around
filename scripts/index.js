@@ -151,3 +151,40 @@ addSaveButton.addEventListener('click', (e) => {
         urlInput.value = '';
     }
 });
+
+
+const imagePopup = document.querySelector('.popup__container');
+const popupImage = document.querySelector('.popup__image');
+const popupClose = document.querySelector('.popup__close');
+const popupTitle = document.querySelector('.popup__title');
+
+
+function openImagePopup(imageUrl) {
+    popupImage.src = imageUrl; 
+    imagePopup.classList.add('popup--active'); 
+}
+
+
+function closeImagePopup() { 
+    imagePopup.classList.remove('popup--active'); 
+}
+
+
+const galleryImages = document.querySelectorAll('.gallery__images'); 
+galleryImages.forEach(image => {
+    image.addEventListener('click', () => {
+        const imageUrl = image.src; 
+        openImagePopup(imageUrl); 
+    });
+});
+
+
+popupClose.addEventListener('click', closeImagePopup); 
+
+imagePopup.addEventListener('click', (e) => {
+    if (e.target === imagePopup) {
+        closeImagePopup();
+    }
+    console.log(popupClose)
+});
+
