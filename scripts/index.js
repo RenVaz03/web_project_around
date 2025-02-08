@@ -135,6 +135,9 @@ function createCard(title, imageUrl) {
 
     return card;
 }
+likeButton.addEventListener('click', function (evt) {
+evt.target.classList.toggle('gallery__button-like_active')
+});
 
 addSaveButton.addEventListener('click', (e) => {
     e.preventDefault();
