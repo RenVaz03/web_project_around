@@ -125,12 +125,14 @@ function createCard(title, imageUrl) {
     deleteIcon.alt = 'boton de basura';
     deleteButton.appendChild(deleteIcon);
 
-    likeButton.addEventListener('click', function (evt){
+    likeButton.addEventListener('click', function (evt) {
         evt.target.classList.toggle('gallery__button-like_active');
     });
 
-    deleteButton.addEventListener('click', function(evt){
-        const card = evt.target.remove('gallery'); 
+    deleteButton.addEventListener('click', function(evt) {
+        const card = evt.target.closest('.gallery'); 
+
+        card.remove()
     });
 
     cardDetails.appendChild(cardTitle);
