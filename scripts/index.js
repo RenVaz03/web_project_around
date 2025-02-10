@@ -93,6 +93,29 @@ initialCards.forEach(card => {
     photoGallery.appendChild(newCard);
 });
 
+addSaveButton.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const title = titleInput.value;
+    const imageUrl = urlInput.value;
+
+    if (title && imageUrl) {
+        const newCard = createCard(title, imageUrl);
+
+        photoGallery.appendChild(newCard);
+
+        titleInput.value = '';
+        urlInput.value = '';
+    }
+});
+
+function addImagePopupListener(image) {
+    image.addEventListener('click', () => {
+        const imageUrl = image.src;
+        openImagePopup(imageUrl);
+    });
+}
+
 function createCard(title, imageUrl) {
     const card = document.createElement('div');
     card.classList.add('gallery');
@@ -103,6 +126,7 @@ function createCard(title, imageUrl) {
     cardImage.alt = title;
     cardImage.classList.add('gallery__images');
 
+    addImagePopupListener(cardImage);
 
     const cardDetails = document.createElement('div');
     cardDetails.classList.add('gallery__images-element');
@@ -143,23 +167,6 @@ function createCard(title, imageUrl) {
 
     return card;
 }
-
-addSaveButton.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    const title = titleInput.value;
-    const imageUrl = urlInput.value;
-
-    if (title && imageUrl) {
-        const newCard = createCard(title, imageUrl);
-
-        photoGallery.appendChild(newCard);
-
-        titleInput.value = '';
-        urlInput.value = '';
-    }
-});
-
 
 const imagePopup = document.querySelector('.popup__container');
 const popupImage = document.querySelector('.popup__image');
