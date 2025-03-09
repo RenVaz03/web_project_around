@@ -66,6 +66,14 @@
         margin: auto auto 29px;
         padding: 0 0 13.26px;
     }
+
+    .modal__name:invalid {
+        border-bottom: 1px solid #ff0000;
+    }
+
+    .modal__name:valid {
+        border-bottom: 1px solid #c2c2c2;
+    }
     
     .modal__abt-me{
         width: 100%;
@@ -81,6 +89,14 @@
         border-bottom: 1px solid #c2c2c2;
         margin: auto auto 48px;
         padding: 0 0 13.26px;
+    }
+
+    .modal__abt-me:invalid {
+        border-bottom: 1px solid #ff0000;
+    }
+
+    .modal__abt-me:valid {
+        border-bottom: 1px solid #c2c2c2;
     }
     
     

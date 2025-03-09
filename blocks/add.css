@@ -66,6 +66,14 @@
         margin: auto auto 29px;
         padding: 0 0 13.26px;
     }
+
+    .add__title:invalid {
+        border-bottom: 1px solid #ff0000;
+    }
+
+    .add__title:valid {
+        border-bottom: 1px solid #c2c2c2;
+    }
     
     .add__url{
         width: 100%;
@@ -81,6 +89,14 @@
         border-bottom: 1px solid #c2c2c2;
         margin: auto auto 48px;
         padding: 0 0 13.26px;
+    }
+
+    .add__url:invalid {
+        border-bottom: 1px solid #ff0000;
+    }
+
+    .add__url:valid {
+        border-bottom: 1px solid #c2c2c2;
     }
     
     

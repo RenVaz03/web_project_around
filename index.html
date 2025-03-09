@@ -54,16 +54,19 @@
         <footer class="footer">&copy;2024. Around The U.S.</footer>
         </main>
         <section class="modal">
-            <form class="modal__container">
+            <form class="modal__container" novalidate>
                 <button class="modal__close">
                     <img src="./images/closeIconX.png" alt="boton de cierre" class="modal__close-img">
                     </button>
                 <h3 class="modal__edit">Editar perfil</h3>
                 <div class="modal__info">
-                    <input type= "text" class="modal__name" value placeholder="Jacques Cousteau">
-                    <input type="text" class="modal__abt-me" value placeholder="Explorador">
+                      <input type= "text" id="modalName" class="modal__name" value placeholder="Jacques Cousteau" required minlength="2"
+                    maxlength="40">
+                    <span class="name__error modal__error-message"></span>
+                      <input type="text" id="modalAbtme" class="modal__abt-me" value placeholder="Explorador" required minlength="2" maxlength="200">
+                    <span class="abt-me__error modal__error-message"></span>
                 </div>
-                <button class="modal__save">Guardar</button>
+                <button type="submit" id="saveButton" class="modal__save">Guardar</button>
             </form>
         </section>
         <section class="add">
@@ -73,8 +76,8 @@
                     </button>
                 <h3 class="add_new__place">Nuevo lugar</h3>
                 <div class="add__info">
-                    <input type= "text" class="add__title" value placeholder="Titulo">
-                    <input type="text" class="add__url" value placeholder="Enlace a la imagen">
+                    <input type= "text" class="add__title" value placeholder="Titulo" required minlength="2" maxlength="30">
+                    <input type="url" class="add__url" value placeholder="Enlace a la imagen" required >
                 </div>
                 <button class="add__save">Crear</button>
             </form>
