@@ -61,6 +61,13 @@ saveButton.addEventListener('click', (e) => {
     modal.classList.remove('modal--active');
 });
 
+
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.classList.remove('modal--active');
+    }
+});
+
 const openAdd = document.querySelector('.profile__button-add')
 const add = document.querySelector('.add');
 const closeAdd = document.querySelector('.add__close');
@@ -85,6 +92,12 @@ e.preventDefault();
 add.classList.remove('add--active');
 });
 
+
+add.addEventListener('click', (e) => {
+    if (e.target === add) {
+        add.classList.remove('add--active');
+    }
+});
 
 const photoGallery = document.querySelector('.photo__gallery');
 
@@ -191,7 +204,7 @@ galleryImages.forEach(image => {
         const imageUrl = image.src; 
         openImagePopup(imageUrl); 
     });
-});
+}); 
 
 
 popupClose.addEventListener('click', closeImagePopup); 
@@ -201,3 +214,66 @@ imagePopup.addEventListener('click', (e) => {
         closeImagePopup();
     }
 });
+
+const form = document.querySelector(".modal__container");
+const modalName = form.querySelector(".modal__name");
+const modalAboutMe = form.querySelector(".modal__abt-me");
+const modalNameError = form.querySelector(".name__error");
+const modalAbtMeError = form.querySelector(".abt-me__error");
+const save = form.querySelector("#saveButton");
+
+
+const showError = (input, errorElement, message) => {
+  errorElement.textContent = message;
+  errorElement.classList.add("modal__error-active");
+  input.classList.add("modal__input-error"); 
+  
+};
+
+
+const hideError = (input, errorElement) => {
+  errorElement.textContent = "";
+  errorElement.classList.remove("modal__error-active");
+  input.classList.remove("modal__input-error");
+};
+
+const checkInputValidity = (input, errorElement) => {
+  if (!input.validity.valid) {
+    if (input.validity.valueMissing) {
+      showError(input, errorElement, "Este campo es obligatorio.");
+    } else if (input.validity.tooShort) {
+      showError(input, errorElement, `Debe tener al menos ${input.minLength} caracteres.`);
+    } else if (input.validity.tooLong) {
+      showError(input, errorElement, `Debe tener como máximo ${input.maxLength} caracteres.`);
+    }
+  } else {
+    hideError(input, errorElement);
+  }
+};
+
+const checkFormValidity = () => {
+  if (form.checkValidity()) {
+    save.disabled = false;
+  } else {
+    save.disabled = true;
+  }
+};
+
+modalName.addEventListener("input", () => {
+  checkInputValidity(modalName, modalNameError);
+  checkFormValidity();
+});
+
+modalAboutMe.addEventListener("input", () => {
+  checkInputValidity(modalAboutMe, modalAbtMeError);
+  checkFormValidity();
+});
+
+
+form.addEventListener("submit", function (evt) {
+  if (!form.checkValidity()) {
+    evt.preventDefault();
+  }
+});
+
+checkFormValidity();
