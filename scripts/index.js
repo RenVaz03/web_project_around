@@ -49,6 +49,12 @@ closeModal.addEventListener('click', (e) => {
     modal.classList.remove('modal--active');
 });
 
+document.addEventListener("keydown", function (e){
+    if(e.key === "Escape") {
+    modal.classList.remove('modal--active')
+    }
+});
+
 
 saveButton.addEventListener('click', (e) => {
     e.preventDefault();
@@ -85,6 +91,13 @@ closeAdd.addEventListener('click', (e) => {
     e.preventDefault();
     add.classList.remove('add--active');
 });
+
+document.addEventListener("keydown", function (e){
+    if(e.key === "Escape") {
+    add.classList.remove('add--active')
+    }
+});
+
 
 addSaveButton.addEventListener('click', (e) => {
 e.preventDefault();
