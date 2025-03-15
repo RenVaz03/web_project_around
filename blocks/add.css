@@ -74,6 +74,13 @@
     .add__title:valid {
         border-bottom: 1px solid #c2c2c2;
     }
+
+    .add__error-message{
+        color: red;
+        font-size: 12px;
+        display: block;
+        padding: 0 0 0 36px;
+    }
     
     .add__url{
         width: 100%;
@@ -98,6 +105,13 @@
     .add__url:valid {
         border-bottom: 1px solid #c2c2c2;
     }
+
+    .add__error-message{
+        color: red;
+        font-size: 12px;
+        display: block;
+        padding: 0 0 0 36px;
+    }
     
     
     .add__save{
@@ -114,6 +128,14 @@
     
     .add__save:hover{
         opacity: 80%;
+    }
+
+    
+    .add__save:disabled{
+        background-color: transparent;
+        color: #c2c2c2;
+        border-color: #c2c2c2;
+        pointer-events: none;
     }
 
     @media screen and (max-width: 910px){
