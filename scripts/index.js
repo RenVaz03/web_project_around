@@ -1,3 +1,11 @@
+const openModal = document.querySelector('.profile__info-edit');
+const modal = document.querySelector('.modal');
+const closeModal = document.querySelector('.modal__close');
+const saveButton = document.querySelector('.modal__save');
+const nameInput = document.querySelector('.modal__name');
+const aboutInput = document.querySelector('.modal__abt-me');
+const profileName = document.querySelector('.profile__info-name');
+const profileProfession = document.querySelector('.profile__info-profession');
 const initialCards = [
     {
       name: "Valle de Yosemite",
@@ -24,15 +32,6 @@ const initialCards = [
       link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
     }
   ];
-   
-const openModal = document.querySelector('.profile__info-edit');
-const modal = document.querySelector('.modal');
-const closeModal = document.querySelector('.modal__close');
-const saveButton = document.querySelector('.modal__save');
-const nameInput = document.querySelector('.modal__name');
-const aboutInput = document.querySelector('.modal__abt-me');
-const profileName = document.querySelector('.profile__info-name');
-const profileProfession = document.querySelector('.profile__info-profession');
 
 
 openModal.addEventListener('click', (e) => {
