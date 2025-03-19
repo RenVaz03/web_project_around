@@ -52,6 +52,8 @@ closeModal.addEventListener('click', (e) => {
 document.addEventListener("keydown", function (e){
     if(e.key === "Escape") {
     modal.classList.remove('modal--active')
+    } else if(e.key === "Enter"){
+        saveButton();
     }
 });
 
@@ -91,13 +93,6 @@ closeAdd.addEventListener('click', (e) => {
     e.preventDefault();
     add.classList.remove('add--active');
 });
-
-document.addEventListener("keydown", function (e){
-    if(e.key === "Escape") {
-    add.classList.remove('add--active')
-    }
-});
-
 
 addSaveButton.addEventListener('click', (e) => {
 e.preventDefault();
