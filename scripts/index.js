@@ -49,11 +49,15 @@ closeModal.addEventListener('click', (e) => {
     modal.classList.remove('modal--active');
 });
 
-document.addEventListener("keydown", function (e){
-    if(e.key === "Escape") {
-    modal.classList.remove('modal--active')
-    } else if(e.key === "Enter"){
-        saveButton();
+document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+        modal.classList.remove('modal--active');
+    } else if (e.key === "Enter") {
+        e.preventDefault();
+        
+        if (document.activeElement.tagName === "INPUT") {
+            saveButton.click();
+        }
     }
 });
 
