@@ -83,9 +83,23 @@
                 </div>
                 <button type="submit" id="createButton" class="add__save">Crear</button>
             </form>
+            <template id="card-template">
+              <div class="gallery">
+                <img class="gallery__images" src="" alt="">
+                <div class="gallery__images-element">
+                  <p class="gallery__image-name"></p>
+                  <button class="gallery__button-like">
+                    <img src="./images/HeartButton.png" alt="boton de like">
+                  </button>
+                  <button class="gallery__button-delete">
+                    <img src="./images/trashButton.png" alt="boton de basura">
+                  </button>
+                </div>
+              </div>
+            </template>            
         </section>
     </div>
-    <script src="./scripts/index.js" ></script>
-    <script src="./scripts/validate.js"></script>
+    <script src="./scripts/index.js"></script>
+    <script src="./scripts/formValidator.js"></script>
 </body>
 </html>
