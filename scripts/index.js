@@ -1,3 +1,11 @@
+import Card from "./card.js";
+
+function createCard(title, imageUrl) {
+    const card = new Card({ name: title, link: imageUrl }, "#card-template", openImagePopup);
+    return card.generateCard();
+  }
+  
+
 const openModal = document.querySelector('.profile__info-edit');
 const modal = document.querySelector('.modal');
 const closeModal = document.querySelector('.modal__close');
@@ -133,64 +141,6 @@ addSaveButton.addEventListener('click', (e) => {
     }
 });
 
-function addImagePopupListener(image) {
-    image.addEventListener('click', () => {
-        const imageUrl = image.src;
-        openImagePopup(imageUrl);
-    });
-}
-
-function createCard(title, imageUrl) {
-    const card = document.createElement('div');
-    card.classList.add('gallery');
-
- 
-    const cardImage = document.createElement('img');
-    cardImage.src = imageUrl;
-    cardImage.alt = title;
-    cardImage.classList.add('gallery__images');
-
-    addImagePopupListener(cardImage);
-
-    const cardDetails = document.createElement('div');
-    cardDetails.classList.add('gallery__images-element');
-
-    const cardTitle = document.createElement('p');
-    cardTitle.textContent = title;
-    cardTitle.classList.add('gallery__image-name');
-
-    const likeButton = document.createElement('button');
-    likeButton.classList.add('gallery__button-like');
-    const likeIcon = document.createElement('img');
-    likeIcon.src = './images/HeartButton.png';
-    likeIcon.alt = 'boton de like';
-    likeButton.appendChild(likeIcon);
-
-    const deleteButton = document.createElement('button');
-    deleteButton.classList.add('gallery__button-delete');
-    const deleteIcon = document.createElement('img');
-    deleteIcon.src = './images/trashButton.png';
-    deleteIcon.alt = 'boton de basura';
-    deleteButton.appendChild(deleteIcon);
-
-    likeButton.addEventListener('click', function (evt) {
-        evt.target.classList.toggle('gallery__button-like_active');
-    });
-
-    deleteButton.addEventListener('click', function(evt) {
-        const card = evt.target.closest('.gallery'); 
-
-        card.remove()
-    });
-
-    cardDetails.appendChild(cardTitle);
-    cardDetails.appendChild(likeButton);
-    cardDetails.appendChild(deleteButton);
-    card.appendChild(cardImage);
-    card.appendChild(cardDetails);
-
-    return card;
-}
 
 const imagePopup = document.querySelector('.popup__container');
 const popupImage = document.querySelector('.popup__image');

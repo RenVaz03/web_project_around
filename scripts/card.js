@@ -1,8 +1,9 @@
-export class Card {
-    constructor(data, templateSelector) {
+export default class Card {
+    constructor(data, templateSelector, handlePreview) {
         this._title = data.name
         this._image = data.link
         this._templateSelector =templateSelector;
+        this._handlePreview = handlePreview;
     }
     _getTemplate(){
         const template = document
@@ -46,6 +47,6 @@ export class Card {
     }
 
     _handlePreview(){
-        openImagePopup(this._image, this._title);
+        this._handlePreview(this._image, this._title);
     }
 }
