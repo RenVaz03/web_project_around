@@ -1,3 +1,14 @@
+import {
+    modalOpen,
+    modalClose,
+    addOpen,
+    addClose,
+    imagePopupOpen,
+    imagePopupClose,
+    //imagePopupOpen,
+    //imagePopupclose
+} from "./utils.js"
+
 import Card from "./card.js";
 import FormValidator from "./formValidator.js";
 
@@ -56,22 +67,20 @@ const initialCards = [
 
 openModal.addEventListener('click', (e) => {
     e.preventDefault();
-    modal.classList.add('modal--active');
-
- 
     nameInput.value = profileName.textContent;
     aboutInput.value = profileProfession.textContent;
+    modalOpen(modal);
 });
 
 
 closeModal.addEventListener('click', (e) => {
     e.preventDefault();
-    modal.classList.remove('modal--active');
+    modalClose(modal);
 });
 
 document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
-        modal.classList.remove('modal--active');
+        modalClose(modal);
     } else if (e.key === "Enter") {
         e.preventDefault();
         
@@ -84,18 +93,15 @@ document.addEventListener("keydown", function (e) {
 
 saveButton.addEventListener('click', (e) => {
     e.preventDefault();
-
-
     profileName.textContent = nameInput.value;
     profileProfession.textContent = aboutInput.value;
-
-    modal.classList.remove('modal--active');
+    modalClose(modal);
 });
 
 
 modal.addEventListener('click', (e) => {
     if (e.target === modal) {
-        modal.classList.remove('modal--active');
+        modalClose(modal);
     }
 });
 
@@ -109,24 +115,24 @@ const cardTitle = document.querySelector('.card__title-name');
 
 openAdd.addEventListener('click', (e) => {
     e.preventDefault();
-    add.classList.add('add--active');
+    addOpen(add);
 });
 
 
 closeAdd.addEventListener('click', (e) => {
     e.preventDefault();
-    add.classList.remove('add--active');
+    addClose(add);
 });
 
 addSaveButton.addEventListener('click', (e) => {
 e.preventDefault();
-add.classList.remove('add--active');
+addClose(add);
 });
 
 
 add.addEventListener('click', (e) => {
     if (e.target === add) {
-        add.classList.remove('add--active');
+        addClose(add);
     }
 });
 
@@ -161,14 +167,16 @@ const popupTitle = document.querySelector('.popup__title');
 
 
 function openImagePopup(imageUrl) {
-    popupImage.src = imageUrl; 
-    imagePopup.classList.add('popup--active'); 
+   imagePopupOpen(imagePopup, popupImage, imageUrl); 
 }
 
+popupClose.addEventListener("click", () => imagePopupClose(imagePopup));
 
-function closeImagePopup() { 
-    imagePopup.classList.remove('popup--active'); 
-}
+ imagePopup.addEventListener("click", (e) => {
+  if(e.target === imagePopup){
+    imagePopupClose(imagePopup)
+  }
+ });
 
 
 const galleryImages = document.querySelectorAll('.gallery__images'); 
