@@ -5,8 +5,6 @@ import {
     addClose,
     imagePopupOpen,
     imagePopupClose,
-    //imagePopupOpen,
-    //imagePopupclose
 } from "./utils.js"
 
 import Card from "./card.js";
@@ -124,11 +122,6 @@ closeAdd.addEventListener('click', (e) => {
     addClose(add);
 });
 
-addSaveButton.addEventListener('click', (e) => {
-e.preventDefault();
-addClose(add);
-});
-
 
 add.addEventListener('click', (e) => {
     if (e.target === add) {
@@ -151,11 +144,10 @@ addSaveButton.addEventListener('click', (e) => {
 
     if (title && imageUrl) {
         const newCard = createCard(title, imageUrl);
-
         photoGallery.appendChild(newCard);
-
         titleInput.value = '';
         urlInput.value = '';
+        addClose(add);
     }
 });
 
@@ -163,7 +155,7 @@ addSaveButton.addEventListener('click', (e) => {
 const imagePopup = document.querySelector('.popup__container');
 const popupImage = document.querySelector('.popup__image');
 const popupClose = document.querySelector('.popup__close');
-const popupTitle = document.querySelector('.popup__title');
+
 
 
 function openImagePopup(imageUrl) {
@@ -186,12 +178,3 @@ galleryImages.forEach(image => {
         openImagePopup(imageUrl); 
     });
 }); 
-
-
-popupClose.addEventListener('click', closeImagePopup); 
-
-imagePopup.addEventListener('click', (e) => {
-    if (e.target === imagePopup) {
-        closeImagePopup();
-    }
-});
