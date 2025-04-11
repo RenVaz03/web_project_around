@@ -1,10 +1,22 @@
 import Card from "./card.js";
+import FormValidator from "./formValidator.js";
 
 function createCard(title, imageUrl) {
     const card = new Card({ name: title, link: imageUrl }, "#card-template", openImagePopup);
     return card.generateCard();
   }
   
+const config = {
+errorClass: "modal__error-active",
+inputErrorClass: "modal__input-error"
+};
+
+const allForms = document.querySelectorAll("form");
+
+allForms.forEach((form) => {
+    const validator = new FormValidator(config, form);
+    validator.enableValidation();
+});
 
 const openModal = document.querySelector('.profile__info-edit');
 const modal = document.querySelector('.modal');
