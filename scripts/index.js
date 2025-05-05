@@ -7,14 +7,20 @@ import {
     imagePopupClose,
 } from "./utils.js"
 
-import Card from "./card.js";
-import FormValidator from "./formValidator.js";
+import Card from "../components/card.js";
+import FormValidator from "../components/formValidator.js";
+import Section from "../components/section.js";
 
 function createCard(title, imageUrl) {
     const card = new Card({ name: title, link: imageUrl }, "#card-template", openImagePopup);
     return card.generateCard();
   }
-  
+   
+function renderCard(item){
+    const cardElement = createCard(item.name, item.link);
+    Section.addItem(cardElement);
+}
+
 const config = {
 errorClass: "modal__error-active",
 inputErrorClass: "modal__input-error"
@@ -178,3 +184,13 @@ galleryImages.forEach(image => {
         openImagePopup(imageUrl); 
     });
 }); 
+
+const section = new Section(
+    {
+        items: initialCards,
+        renderer: renderCard
+    },
+    ".photo__gallery"
+    );
+    
+    section.renderItem();
