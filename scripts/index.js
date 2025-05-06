@@ -10,6 +10,8 @@ import {
 import Card from "../components/card.js";
 import FormValidator from "../components/formValidator.js";
 import Section from "../components/section.js";
+import Popup from "../components/popup.js";
+
 
 function createCard(title, imageUrl) {
     const card = new Card({ name: title, link: imageUrl }, "#card-template", openImagePopup);
