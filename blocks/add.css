@@ -11,7 +11,7 @@
     pointer-events: none;
     }
     
-    .add--active{
+    .popup--active{
         opacity: 100%;
         pointer-events: unset;
     }

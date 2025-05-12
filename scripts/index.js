@@ -10,8 +10,10 @@ import {
 import Card from "../components/card.js";
 import FormValidator from "../components/formValidator.js";
 import Section from "../components/section.js";
-import Popup from "../components/popup.js";
-
+import Popup from "../components/Popup.js";
+import PopupWithImages from "../components/PopupWithImages.js";
+import PopupWithForms from "../components/PopupWithForms.js";
+import UserInfo from "../components/userInfo.js";
 
 function createCard(title, imageUrl) {
     const card = new Card({ name: title, link: imageUrl }, "#card-template", openImagePopup);
@@ -70,16 +72,33 @@ const initialCards = [
     }
   ];
 
+const userInfo = new UserInfo({
+ nameSelector: ".profile__info-name",
+ jobSelector: ".profile__info-profession"
+});
 
 openModal.addEventListener('click', (e) => {
-    e.preventDefault();
-    nameInput.value = profileName.textContent;
-    aboutInput.value = profileProfession.textContent;
-    modalOpen(modal);
+    e.preventDefault(); 
+    const userData = userInfo.getUserInfo();
+    nameInput.value = userData.name;
+    aboutInput.value = userData.job;
+ 
+    modalOpen.open();
+ }); 
+
+const modalPopup = new PopupWithForms('.modal', (formData) => {
+    userInfo.setUserInfo({
+        name: formData['name'],
+        job: formData['abtMe']
+    });
+modalClose.close();
+    modalPopup.setEventListener();
 });
 
 
-closeModal.addEventListener('click', (e) => {
+
+
+/*closeModal.addEventListener('click', (e) => {
     e.preventDefault();
     modalClose(modal);
 });
@@ -110,6 +129,7 @@ modal.addEventListener('click', (e) => {
         modalClose(modal);
     }
 });
+*/
 
 const openAdd = document.querySelector('.profile__button-add')
 const add = document.querySelector('.add');

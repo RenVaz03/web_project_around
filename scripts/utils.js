@@ -3,7 +3,7 @@ export function modalOpen(modal){
 }
 
 export function modalClose(modal){
-  modal.classList.remove("modal--active");
+  modal.classList.remove("modal.popup--active");
 }
 
 export function addOpen(add){
