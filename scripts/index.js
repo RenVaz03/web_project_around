@@ -38,13 +38,15 @@ allForms.forEach((form) => {
 });
 
 const openModal = document.querySelector('.profile__info-edit');
-const modal = document.querySelector('.modal');
-const closeModal = document.querySelector('.modal__close');
-const saveButton = document.querySelector('.modal__save');
 const nameInput = document.querySelector('.modal__name');
 const aboutInput = document.querySelector('.modal__abt-me');
-const profileName = document.querySelector('.profile__info-name');
-const profileProfession = document.querySelector('.profile__info-profession');
+const openAdd = document.querySelector('.profile__button-add')
+const add = document.querySelector('.add');
+const closeAdd = document.querySelector('.add__close');
+const addSaveButton = document.querySelector('.add__save');
+const titleInput = document.querySelector('.add__title');
+const urlInput = document.querySelector('.add__url');
+const cardTitle = document.querySelector('.card__title-name');
 const initialCards = [
     {
       name: "Valle de Yosemite",
@@ -77,84 +79,36 @@ const userInfo = new UserInfo({
  jobSelector: ".profile__info-profession"
 });
 
-openModal.addEventListener('click', (e) => {
-    e.preventDefault(); 
-    const userData = userInfo.getUserInfo();
-    nameInput.value = userData.name;
-    aboutInput.value = userData.job;
- 
-    modalOpen.open();
- }); 
 
 const modalPopup = new PopupWithForms('.modal', (formData) => {
     userInfo.setUserInfo({
-        name: formData['name'],
-        job: formData['abtMe']
-    });
-modalClose.close();
-    modalPopup.setEventListener();
+        name: formData.name,
+        job: formData.job
+    });  
+    modalPopup.close();
 });
 
+modalPopup.setEventListener();
 
+openModal.addEventListener('click', () => {
+    const userData = userInfo.getUserInfo();
+    nameInput.value = userInfo.getUserInfo().name;
+    aboutInput.value = userInfo.getUserInfo().job;
+    modalPopup.open();
+ }); 
 
-
-/*closeModal.addEventListener('click', (e) => {
-    e.preventDefault();
-    modalClose(modal);
+const addPopup = new PopupWithForms ( '.add', (formData) => {
+    const newCard= createCard(formData.title, formData.url);
+    section.addItem(newCard);
+    addPopup.close();
 });
 
-document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-        modalClose(modal);
-    } else if (e.key === "Enter") {
-        e.preventDefault();
-        
-        if (document.activeElement.tagName === "INPUT") {
-            saveButton.click();
-        }
-    }
-});
+addPopup.setEventListener();
 
-
-saveButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    profileName.textContent = nameInput.value;
-    profileProfession.textContent = aboutInput.value;
-    modalClose(modal);
-});
-
-
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modalClose(modal);
-    }
-});
-*/
-
-const openAdd = document.querySelector('.profile__button-add')
-const add = document.querySelector('.add');
-const closeAdd = document.querySelector('.add__close');
-const addSaveButton = document.querySelector('.add__save');
-const titleInput = document.querySelector('.add__title');
-const urlInput = document.querySelector('.add__url');
-const cardTitle = document.querySelector('.card__title-name');
-
-openAdd.addEventListener('click', (e) => {
-    e.preventDefault();
-    addOpen(add);
-});
-
-
-closeAdd.addEventListener('click', (e) => {
-    e.preventDefault();
-    addClose(add);
-});
-
-
-add.addEventListener('click', (e) => {
-    if (e.target === add) {
-        addClose(add);
-    }
+openAdd.addEventListener('click', () => {
+    titleInput.value ="";
+    urlInput.value = "";
+    addPopup.open();
 });
 
 const photoGallery = document.querySelector('.photo__gallery');
@@ -164,20 +118,6 @@ initialCards.forEach(card => {
     photoGallery.appendChild(newCard);
 });
 
-addSaveButton.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    const title = titleInput.value;
-    const imageUrl = urlInput.value;
-
-    if (title && imageUrl) {
-        const newCard = createCard(title, imageUrl);
-        photoGallery.appendChild(newCard);
-        titleInput.value = '';
-        urlInput.value = '';
-        addClose(add);
-    }
-});
 
 
 const imagePopup = document.querySelector('.popup__container');
