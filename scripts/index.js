@@ -1,28 +1,28 @@
-import {
-    modalOpen,
-    modalClose,
-    addOpen,
-    addClose,
-    imagePopupOpen,
-    imagePopupClose,
-} from "./utils.js"
-
 import Card from "../components/card.js";
 import FormValidator from "../components/formValidator.js";
 import Section from "../components/section.js";
-import Popup from "../components/Popup.js";
 import PopupWithImages from "../components/PopupWithImages.js";
 import PopupWithForms from "../components/PopupWithForms.js";
 import UserInfo from "../components/userInfo.js";
 
+const popupWithImage = new PopupWithImages('.popup'); 
+popupWithImage.setEventListener();
+
+const handleCardClick = (name, link) => {
+  popupWithImage.open({name, link});
+}; 
+
 function createCard(title, imageUrl) {
-    const card = new Card({ name: title, link: imageUrl }, "#card-template", openImagePopup);
+    const card = new Card(
+      { name: title, link: imageUrl },
+       "#card-template", 
+       handleCardClick);
     return card.generateCard();
   }
    
 function renderCard(item){
     const cardElement = createCard(item.name, item.link);
-    Section.addItem(cardElement);
+    section.addItem(cardElement);
 }
 
 const config = {
@@ -41,9 +41,6 @@ const openModal = document.querySelector('.profile__info-edit');
 const nameInput = document.querySelector('.modal__name');
 const aboutInput = document.querySelector('.modal__abt-me');
 const openAdd = document.querySelector('.profile__button-add')
-const add = document.querySelector('.add');
-const closeAdd = document.querySelector('.add__close');
-const addSaveButton = document.querySelector('.add__save');
 const titleInput = document.querySelector('.add__title');
 const urlInput = document.querySelector('.add__url');
 const cardTitle = document.querySelector('.card__title-name');
@@ -110,42 +107,6 @@ openAdd.addEventListener('click', () => {
     urlInput.value = "";
     addPopup.open();
 });
-
-const photoGallery = document.querySelector('.photo__gallery');
-
-initialCards.forEach(card => {
-    const newCard = createCard(card.name, card.link);
-    photoGallery.appendChild(newCard);
-});
-
-
-
-const imagePopup = document.querySelector('.popup__container');
-const popupImage = document.querySelector('.popup__image');
-const popupClose = document.querySelector('.popup__close');
-
-
-
-function openImagePopup(imageUrl) {
-   imagePopupOpen(imagePopup, popupImage, imageUrl); 
-}
-
-popupClose.addEventListener("click", () => imagePopupClose(imagePopup));
-
- imagePopup.addEventListener("click", (e) => {
-  if(e.target === imagePopup){
-    imagePopupClose(imagePopup)
-  }
- });
-
-
-const galleryImages = document.querySelectorAll('.gallery__images'); 
-galleryImages.forEach(image => {
-    image.addEventListener('click', () => {
-        const imageUrl = image.src; 
-        openImagePopup(imageUrl); 
-    });
-}); 
 
 const section = new Section(
     {
