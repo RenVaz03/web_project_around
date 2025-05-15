@@ -8,7 +8,7 @@ import UserInfo from "../components/userInfo.js";
 const popupWithImage = new PopupWithImages('.popup'); 
 popupWithImage.setEventListener();
 
-const handleCardClick = (name, link) => {
+function handleCardClick (name, link){
   popupWithImage.open({name, link});
 }; 
 
@@ -43,7 +43,6 @@ const aboutInput = document.querySelector('.modal__abt-me');
 const openAdd = document.querySelector('.profile__button-add')
 const titleInput = document.querySelector('.add__title');
 const urlInput = document.querySelector('.add__url');
-const cardTitle = document.querySelector('.card__title-name');
 const initialCards = [
     {
       name: "Valle de Yosemite",
