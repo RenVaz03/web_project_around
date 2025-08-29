@@ -1,9 +1,20 @@
+import Api from "../components/Api.js";
 import Card from "../components/card.js";
 import FormValidator from "../components/formValidator.js";
 import Section from "../components/section.js";
 import PopupWithImages from "../components/PopupWithImages.js";
 import PopupWithForms from "../components/PopupWithForms.js";
 import UserInfo from "../components/userInfo.js";
+
+const api = new Api({
+  baseUrl: "https://around-api.es.tripleten-services.com/v1/",
+  headers: {
+    authorization: "d1f0c2b3-4e8a-4f5b-9c6d-7e8f9a0b1c2d",
+    "Content-Type": "application/json"  
+  }
+});
+
+
 
 const popupWithImage = new PopupWithImages('.popup'); 
 popupWithImage.setEventListener();
